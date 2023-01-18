@@ -11,11 +11,11 @@ export function useCountries() {
         const resp = await getCountries();
         setCountries(resp);
       } catch (e) {
-        setError('error');
+        setError('Error: could not load list of countries');
       }
     };
     fetchData();
   }, []);
-  console.log('using countries', countries);
+  //   console.log('using countries', countries);
   return { countries, error };
 }
