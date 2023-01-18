@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { getCountries } from '../services/getCountries.js';
 
 export function useCountries() {
@@ -12,5 +12,6 @@ export function useCountries() {
     fetchData();
   }, []);
 
+  //   console.log('using countries', countries);
   return countries;
 }
