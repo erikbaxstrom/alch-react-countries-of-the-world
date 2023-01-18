@@ -4,15 +4,17 @@
 import { useCountries } from '../../../hooks/useCountries.js';
 
 export default function Main() {
-  const countries = useCountries();
+  const { countries, error } = useCountries();
   //   console.log('main Countries', countries);
+
   return (
     <main>
+      <h1>{error}</h1>
       {countries.map((country) => (
-        <>
+        <div key={country.iso2}>
           <h2>{country.name}</h2>
           <h3>{country.iso2}</h3>
-        </>
+        </div>
       ))}
     </main>
   );
