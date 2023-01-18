@@ -13,7 +13,11 @@ export default function Main() {
       {countries.map((country) => (
         <div key={country.iso2}>
           <h2>{country.name}</h2>
-          <h3>{country.iso2}</h3>
+          <img
+            src={`https://flagcdn.com/72x54/${country.iso2.toLowerCase()}.png
+`}
+          ></img>
+          <h3>{country.continent}</h3>
         </div>
       ))}
     </main>
