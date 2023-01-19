@@ -15,12 +15,16 @@ export default function Main() {
   const [selectedContinent, setSelectedContinent] = useState('all');
   //   console.log('main Countries', countries, error);
 
+  const filteredCountries = countries.filter(
+    (country) => country.continent === selectedContinent || selectedContinent === 'all'
+  );
+
   return (
     <main>
       <Controls {...{ countries, selectedContinent, setSelectedContinent }} />
       <h1>{error}</h1>
       <div className="display">
-        {countries.map((country) => (
+        {filteredCountries.map((country) => (
           <CountryCard key={country.iso2} {...country} />
         ))}
       </div>
