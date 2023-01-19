@@ -1,17 +1,17 @@
-export default function Controls({ countries, display, setDisplay }) {
-  console.log('Controls countries', countries);
-  const continents = [...new Set(countries.map((country) => country.continent))];
-  console.log(continents);
+export default function Controls({ countries, selectedContinent, setSelectedContinent }) {
+  //   console.log('Controls countries', countries);
+  const continentsList = [...new Set(countries.map((country) => country.continent))].filter(
+    (continent) => continent !== null
+  );
+  //   console.log(continentsList);
   return (
-    <select>
-      <option value="All">All</option>
-      {continents
-        .filter((continent) => continent !== null)
-        .map((continent) => (
-          <option key={continent} value={continent}>
-            {continent}
-          </option>
-        ))}
+    <select defaultValue="all" onChange={(e) => setSelectedContinent(e.target.value)}>
+      <option value="all">All</option>
+      {continentsList.map((continent) => (
+        <option key={continent} value={continent}>
+          {continent}
+        </option>
+      ))}
     </select>
   );
 }

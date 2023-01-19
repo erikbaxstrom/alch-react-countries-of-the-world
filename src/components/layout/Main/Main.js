@@ -12,12 +12,12 @@ import './Main.css';
 
 export default function Main() {
   const { countries, error } = useCountries();
-  const [display, setDisplay] = useState([]);
-  console.log('main Countries', countries, error);
+  const [selectedContinent, setSelectedContinent] = useState('all');
+  //   console.log('main Countries', countries, error);
 
   return (
     <main>
-      <Controls {...{ countries, display, setDisplay }} />
+      <Controls {...{ countries, selectedContinent, setSelectedContinent }} />
       <h1>{error}</h1>
       <div className="display">
         {countries.map((country) => (
