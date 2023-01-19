@@ -13,7 +13,6 @@ import './Main.css';
 export default function Main() {
   const { countries, error } = useCountries();
   const [selectedContinent, setSelectedContinent] = useState('all');
-  //   console.log('main Countries', countries, error);
 
   const filteredCountries = countries.filter(
     (country) => country.continent === selectedContinent || selectedContinent === 'all'
@@ -21,7 +20,7 @@ export default function Main() {
 
   return (
     <main>
-      <Controls {...{ countries, selectedContinent, setSelectedContinent }} />
+      <Controls {...{ countries, setSelectedContinent }} />
       <h1>{error}</h1>
       <div className="display">
         {filteredCountries.map((country) => (
